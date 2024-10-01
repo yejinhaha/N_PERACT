@@ -1,0 +1,1356 @@
+[2024-09-25 19:43:26,301][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-25 19:43:26,302][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-25 19:43:26,302][root][INFO] - Starting seed 0.
+[2024-09-25 20:00:15,249][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-25 20:00:15,250][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-25 20:00:15,251][root][INFO] - Starting seed 0.
+[2024-09-26 02:48:06,400][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 02:48:06,402][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 02:48:06,402][root][INFO] - Starting seed 0.
+[2024-09-26 02:59:55,250][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 02:59:55,251][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 02:59:55,252][root][INFO] - Starting seed 0.
+[2024-09-26 03:15:07,434][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 03:15:07,435][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 03:15:07,436][root][INFO] - Starting seed 0.
+[2024-09-26 03:35:14,651][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 03:35:14,652][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 03:35:14,653][root][INFO] - Starting seed 0.
+[2024-09-26 03:46:56,270][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 03:46:56,271][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 03:46:56,271][root][INFO] - Starting seed 0.
+[2024-09-26 03:58:02,389][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 10
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 03:58:02,390][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 03:58:02,391][root][INFO] - Starting seed 0.
+[2024-09-26 03:58:38,337][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 1000
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 03:58:38,339][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 03:58:38,339][root][INFO] - Starting seed 0.
+[2024-09-26 10:13:55,706][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 1000
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 10:13:55,707][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 10:13:55,708][root][INFO] - Starting seed 0.
+[2024-09-26 10:14:14,529][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 1000
+  save_freq: 10000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 1000
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 10:14:14,530][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 10:14:14,530][root][INFO] - Starting seed 0.
+[2024-09-26 10:16:14,421][root][INFO] - 
+method:
+  name: PERACT_BC
+  image_crop_size: 64
+  bounds_offset:
+  - 0.15
+  voxel_sizes:
+  - 100
+  include_prev_layer: false
+  num_latents: 2048
+  latent_dim: 512
+  transformer_depth: 6
+  transformer_iterations: 1
+  cross_heads: 1
+  cross_dim_head: 64
+  latent_heads: 8
+  latent_dim_head: 64
+  pos_encoding_with_lang: true
+  conv_downsample: true
+  lang_fusion_type: seq
+  voxel_patch_size: 5
+  voxel_patch_stride: 5
+  final_dim: 64
+  input_dropout: 0.1
+  attn_dropout: 0.1
+  decoder_dropout: 0.0
+  lr: 0.0005
+  lr_scheduler: false
+  num_warmup_steps: 3000
+  optimizer: lamb
+  lambda_weight_l2: 1.0e-06
+  trans_loss_weight: 1.0
+  rot_loss_weight: 1.0
+  grip_loss_weight: 1.0
+  collision_loss_weight: 1.0
+  rotation_resolution: 5
+  activation: lrelu
+  norm: None
+  crop_augmentation: true
+  transform_augmentation:
+    apply_se3: true
+    aug_xyz:
+    - 0.125
+    - 0.125
+    - 0.125
+    aug_rpy:
+    - 0.0
+    - 0.0
+    - 45.0
+    aug_rot_resolution: ${method.rotation_resolution}
+  demo_augmentation: true
+  demo_augmentation_every_n: 10
+  no_skip_connection: false
+  no_perceiver: false
+  no_language: false
+  keypoint_method: heuristic
+ddp:
+  master_addr: localhost
+  master_port: '29500'
+  num_devices: 1
+rlbench:
+  task_name: test
+  tasks:
+  - put_item_in_drawer
+  demos: 100
+  demo_path: /home/nuc/peract/data/train
+  episode_length: 25
+  cameras:
+  - front
+  - left_shoulder
+  - right_shoulder
+  - wrist
+  camera_resolution:
+  - 128
+  - 128
+  scene_bounds:
+  - -0.3
+  - -0.5
+  - 0.6
+  - 0.7
+  - 0.5
+  - 1.6
+  include_lang_goal_in_obs: true
+replay:
+  batch_size: 1
+  timesteps: 1
+  prioritisation: false
+  task_uniform: true
+  use_disk: true
+  path: /tmp/replay
+  max_parallel_processes: 32
+framework:
+  log_freq: 100
+  save_freq: 1000
+  train_envs: 1
+  replay_ratio: ${replay.batch_size}
+  transitions_before_train: 200
+  tensorboard_logging: true
+  csv_logging: true
+  training_iterations: 100000
+  gpu: 0
+  env_gpu: 0
+  logdir: /home/nuc/peract/logs/
+  logging_level: 20
+  seeds: 1
+  start_seed: 0
+  load_existing_weights: false
+  num_weights_to_keep: 60
+  num_workers: 0
+  record_every_n: 5
+
+[2024-09-26 10:16:14,423][root][INFO] - CWD:/home/nuc/peract/logs/test/PERACT_BC
+[2024-09-26 10:16:14,423][root][INFO] - Starting seed 0.
